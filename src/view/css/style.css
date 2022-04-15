@@ -1,0 +1,49 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+}
+
+#container {
+  padding: 10px;
+  width: 500px;
+  margin: 0 auto;
+  background-color: #e5e5e5;
+  margin-top: 20px;
+}
+
+#time,
+#result,
+#word {
+  text-align: center;
+  text-shadow: 0 1px 20px #333;
+  font-size: 2em;
+  font-weight: bold;
+  color: #222831;
+  text-align: center;
+  margin-top: 50px;
+}
+#time #word,
+#result #word,
+#word #word {
+  font-size: 1em;
+}
+
+#click_speak {
+  box-shadow: 0 0 20px #333;
+  margin: 20px;
+  padding: 10px;
+  font-size: 2em;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  margin-top: 50px;
+  background-color: #333;
+}/*# sourceMappingURL=style.css.map */
