@@ -46,7 +46,7 @@ recognition.addEventListener('result', e => {
                     result = 'My favorite movie is Star Wars';
                     break;
                 case 'what is your favourite song':
-                    result = 'My favorite song is "The Sign" by Ace of Base';
+                    result = 'My favorite song is "Enemy" by Imagine Dragons';
                     break;
                 case 'what is your favourite sport':
                     result = 'My favorite sport is soccer';
@@ -58,7 +58,7 @@ recognition.addEventListener('result', e => {
                     result = 'My favorite book is "The Hunger Games" by Suzanne Collins';
                     break;
                 case 'what is your favourite game':
-                    result = 'My favorite game is "The Hunger Games" by Suzanne Collins';
+                    result = 'My favorite game is "Grand Theft Auto V" by Rockstar Games';
                     break;
                 default:
                     result = 'I do not understand';
