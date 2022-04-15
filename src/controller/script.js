@@ -36,28 +36,28 @@ recognition.addEventListener('result', e => {
                 case 'what is your job':
                     result = 'I am a chatbot';
                     break;
-                case 'what is your favorite color':
+                case 'what is your favourite colour':
                     result = 'My favorite color is blue';
                     break;
-                case 'what is your favorite food':
+                case 'what is your favourite food':
                     result = 'My favorite food is pizza';
                     break;
-                case 'what is your favorite movie':
+                case 'what is your favourite movie':
                     result = 'My favorite movie is Star Wars';
                     break;
-                case 'what is your favorite song':
+                case 'what is your favourite song':
                     result = 'My favorite song is "The Sign" by Ace of Base';
                     break;
-                case 'what is your favorite sport':
+                case 'what is your favourite sport':
                     result = 'My favorite sport is soccer';
                     break;
-                case 'what is your favorite animal':
+                case 'what is your favourite animal':
                     result = 'My favorite animal is a dog';
                     break;
-                case 'what is your favorite book':
+                case 'what is your favourite book':
                     result = 'My favorite book is "The Hunger Games" by Suzanne Collins';
                     break;
-                case 'what is your favorite game':
+                case 'what is your favourite game':
                     result = 'My favorite game is "The Hunger Games" by Suzanne Collins';
                     break;
                 default:
