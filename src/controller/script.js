@@ -22,48 +22,32 @@ recognition.addEventListener('result', e => {
             var result;
             document.getElementById('word').innerHTML = transcript;
 
+            var words = transcript.split(" ");
 
-            switch (transcript) {
-                case 'hello':
-                    result = 'Hello, how are you?';
-                    break;
-                case 'how are you':
-                    result = 'I am fine, thank you';
-                    break;
-                case 'what is your name':
-                    result = 'My name is Jarvis';
-                    break;
-                case 'what is your job':
-                    result = 'I am a chatbot';
-                    break;
-                case 'what is your favourite colour':
-                    result = 'My favorite color is blue';
-                    break;
-                case 'what is your favourite food':
-                    result = 'My favorite food is pizza';
-                    break;
-                case 'what is your favourite movie':
-                    result = 'My favorite movie is Star Wars';
-                    break;
-                case 'what is your favourite song':
-                    result = 'My favorite song is "Enemy" by Imagine Dragons';
-                    break;
-                case 'what is your favourite sport':
-                    result = 'My favorite sport is soccer';
-                    break;
-                case 'what is your favourite animal':
-                    result = 'My favorite animal is a dog';
-                    break;
-                case 'what is your favourite book':
-                    result = 'My favorite book is "The Hunger Games" by Suzanne Collins';
-                    break;
-                case 'what is your favourite game':
-                    result = 'My favorite game is "Grand Theft Auto V" by Rockstar Games';
-                    break;
-                default:
-                    result = 'I do not understand';
-                    break;
+            if (transcript.includes('hello')) { result = 'Hello, how are you?'; }
+            else if (transcript.includes('how are you')) { result = 'I am fine, thank you'; }
+            else if (transcript.includes('what is your name')) { result = 'My name is Jarvis'; }
+            else if (transcript.includes('what is your job')) { result = 'I am a chatbot'; }
+            else if (transcript.includes('what is your favourite colour')) { result = 'My favorite color is blue'; }
+            else if (transcript.includes('what is your favourite food')) { result = 'My favorite food is pizza'; }
+            else if (transcript.includes('what is your favourite movie')) { result = 'My favorite movie is Star Wars'; }
+            else if (transcript.includes('what is your favourite song')) { result = 'My favorite song is "Enemy" by Imagine Dragons'; }
+            else if (transcript.includes('what is your favourite sport')) { result = 'My favorite sport is soccer'; }
+            else if (transcript.includes('what is your favourite animal')) { result = 'My favorite animal is a dog'; }
+            else if (transcript.includes('what is your favourite book')) { result = 'My favorite book is "The Hunger Games" by Suzanne Collins'; }
+            else if (transcript.includes('what is your favourite game')) { result = 'My favorite game is "Grand Theft Auto V" by Rockstar Games'; }
+            else if (transcript.includes('I am fine')) { result = 'Thank you'; }
+            else if (transcript.includes('thank you')) { result = 'You are welcome'; }
+            else if (transcript.includes('you are welcome')) { result = 'You are welcome'; }
+            else if (transcript.includes('goodbye')) { result = 'Goodbye'; }
+            else if (transcript.includes('bye')) { result = 'Goodbye'; }
+            else if (transcript.includes('good bye')) { result = 'Goodbye'; }
+            else if (transcript.includes('my name')) {
+                var index = words.indexOf('name');
+                result = 'Your name is ' + words[index + 2];
             }
+            else { result = 'I do not understand'; }
+
             utter.text = result;
             document.getElementById('result').innerHTML = result;
             window.speechSynthesis.speak(utter);
