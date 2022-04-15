@@ -38,7 +38,7 @@ recognition.addEventListener('result', e => {
             else if (transcript.includes('what is your favourite game')) { result = 'My favorite game is "Grand Theft Auto V" by Rockstar Games'; }
             else if (transcript.includes('I am fine')) { result = 'Thank you'; }
             else if (transcript.includes('thank you')) { result = 'You are welcome'; }
-            else if (transcript.includes('you are welcome')) { result = 'You are welcome'; }
+            else if (transcript.includes('you are welcome')) { result = 'ok'; }
             else if (transcript.includes('goodbye')) { result = 'Goodbye'; }
             else if (transcript.includes('bye')) { result = 'Goodbye'; }
             else if (transcript.includes('good bye')) { result = 'Goodbye'; }
@@ -46,6 +46,7 @@ recognition.addEventListener('result', e => {
                 var index = words.indexOf('name');
                 result = 'Your name is ' + words[index + 2];
             }
+            else if (transcript.includes('your age')) { result = 'My age is 2 days'; }
             else { result = 'I do not understand'; }
 
             utter.text = result;
