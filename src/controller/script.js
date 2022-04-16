@@ -47,6 +47,7 @@ recognition.addEventListener('result', e => {
                 result = 'Your name is ' + words[index + 2];
             }
             else if (transcript.includes('hi')) { result = 'Hello'; }
+            else if (transcript.includes('hai')) { result = 'Hello'; }
             else if (transcript.includes('your age')) { result = 'My age is 2 days'; }
             else { result = 'I do not understand'; }
             utter.text = result;
