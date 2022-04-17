@@ -24,7 +24,7 @@ recognition.addEventListener('result', e => {
 
             var words = transcript.split(" ");
 
-            if (transcript.includes('hello')) { result = 'Hello, how are you?'; }
+            if (transcript.includes('hello') && !transcript.match('say')) { result = 'Hello, how are you?'; }
             else if (transcript.includes('how are you')) { result = 'I am fine, thank you'; }
             else if (transcript.includes('what is your name')) { result = 'My name is Jarvis'; }
             else if (transcript.includes('what is your job')) { result = 'I am a chatbot'; }
@@ -36,20 +36,73 @@ recognition.addEventListener('result', e => {
             else if (transcript.includes('what is your favourite animal')) { result = 'My favorite animal is a dog'; }
             else if (transcript.includes('what is your favourite book')) { result = 'My favorite book is "The Hunger Games" by Suzanne Collins'; }
             else if (transcript.includes('what is your favourite game')) { result = 'My favorite game is "Grand Theft Auto V" by Rockstar Games'; }
-            else if (transcript.includes('I am fine')) { result = 'Thank you'; }
-            else if (transcript.includes('thank you')) { result = 'You are welcome'; }
-            else if (transcript.includes('you are welcome')) { result = 'ok'; }
-            else if (transcript.includes('goodbye')) { result = 'Goodbye'; }
-            else if (transcript.includes('bye')) { result = 'Goodbye'; }
-            else if (transcript.includes('good bye')) { result = 'Goodbye'; }
+            else if (transcript.includes('I am fine') && !transcript.includes('say')) { result = 'Thank you'; }
+            else if (transcript.includes('thank you') && !transcript.includes('say')) { result = 'You are welcome'; }
+            else if (transcript.includes('you are welcome') && !transcript.includes('say')) { result = 'ok'; }
+            else if (transcript.includes('goodbye') && !transcript.includes('say')) { result = 'Goodbye'; }
+            else if (transcript.includes('bye') && !transcript.includes('say')) { result = 'Goodbye'; }
+            else if (transcript.includes('good bye') && !transcript.includes('say')) { result = 'Goodbye'; }
             else if (transcript.includes('my name')) {
                 var index = words.indexOf('name');
                 result = 'Your name is ' + words[index + 2];
             }
-            else if (transcript.includes('hi')) { result = 'Hello'; }
-            else if (transcript.includes('hai')) { result = 'Hello'; }
-            else if (transcript.includes('your age')) { result = 'My age is 2 days'; }
-            else { result = 'I do not understand'; }
+            else if (transcript.includes('hi') && !transcript.includes('say')) { result = 'Hello'; }
+            else if (transcript.includes('hai') && !transcript.includes('say')) { result = 'Hello'; }
+            else if (transcript.includes('your age')) { result = 'My age is 3 days'; }
+            else if (transcript.includes('say')) {
+                var index = words.indexOf('say');
+                result = 'You said ' + words[index + 1] + ' ';
+                for (var i = index + 2; i < words.length; i++) {
+                    result += words[i] + ' ';
+                }
+            }
+            else if (transcript.includes('how are you')) { result = 'I am fine, thank you'; }
+            else if (transcript.includes('add')) {
+                var index = words.indexOf('and');
+                var num1 = words[index - 1];
+                var num2 = words[index + 1];
+                result = num1 + ' + ' + num2 + ' = ' + (parseInt(num1) + parseInt(num2));
+            }
+            else if (transcript.includes('subtract')) {
+                var index = words.indexOf('and');
+                var num1 = words[index - 1];
+                var num2 = words[index + 1];
+                result = num1 + ' - ' + num2 + ' = ' + (parseInt(num1) - parseInt(num2));
+            }
+            else if (transcript.includes('multiply')) {
+                var index = words.indexOf('and');
+                var num1 = words[index - 1];
+                var num2 = words[index + 1];
+                result = num1 + ' * ' + num2 + ' = ' + (parseInt(num1) * parseInt(num2));
+            }
+            else if (transcript.includes('divide')) {
+                var index = words.indexOf('and');
+                var num1 = words[index - 1];
+                var num2 = words[index + 1];
+                result = num1 + ' / ' + num2 + ' = ' + (parseInt(num1) / parseInt(num2));
+            }
+            else if (transcript.includes('square') && !transcript.includes('square root')) {
+                var index = words.indexOf('of');
+                var num1 = words[index + 1];
+                result = num1 + ' squared = ' + (parseInt(num1) * parseInt(num1));
+            }
+            else if (transcript.includes('cube')) {
+                var index = words.indexOf('of');
+                var num1 = words[index + 1];
+                result = num1 + ' cubed = ' + (parseInt(num1) * parseInt(num1) * parseInt(num1));
+            }
+            else if (transcript.includes('square root')) {
+                var index = words.indexOf('of');
+                var num1 = words[index + 1];
+                result = 'Square root of ' + num1 + ' = ' + Math.sqrt(parseInt(num1));
+            }
+            else if (transcript.includes('power')) {
+                var index = words.indexOf('and');
+                var num1 = words[index - 1];
+                var num2 = words[index + 1];
+                result = num1 + ' to the power of ' + num2 + ' = ' + Math.pow(parseInt(num1), parseInt(num2));
+            }
+            else { result = 'Sorry, I did not understand that'; }
             utter.text = result;
             document.getElementById('result').innerHTML = result;
             window.speechSynthesis.speak(utter);
@@ -66,7 +119,8 @@ recognition.addEventListener('result', e => {
 $(document).ready(function () {
 
     setInterval(function () {
-        document.getElementById("time").innerHTML = Date();
+        var today = new Date();
+        document.getElementById("time").innerHTML = today;
 
         $("#click_speak").on("click", function (e) {
             recognition.start();
