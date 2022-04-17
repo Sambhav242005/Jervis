@@ -42,6 +42,7 @@ recognition.addEventListener('result', e => {
             else if (transcript.includes('goodbye') && !transcript.includes('say')) { result = 'Goodbye'; }
             else if (transcript.includes('bye') && !transcript.includes('say')) { result = 'Goodbye'; }
             else if (transcript.includes('good bye') && !transcript.includes('say')) { result = 'Goodbye'; }
+            else if (transcript.includes('how are you doing') && !transcript.includes('say')) { result = 'I am fine, thank you'; }
             else if (transcript.includes('my name')) {
                 var index = words.indexOf('name');
                 result = 'Your name is ' + words[index + 2];
@@ -117,7 +118,6 @@ recognition.addEventListener('result', e => {
 
 
 $(document).ready(function () {
-
     setInterval(function () {
         var today = new Date();
         document.getElementById("time").innerHTML = today;

@@ -20,10 +20,68 @@ body {
   margin-top: 20px;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 7.5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+#all_qestion {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: right;
+  vertical-align: top;
+  background-color: #e5e5e5;
+  scrollbar-width: 10px;
+}
+#all_qestion p {
+  font-size: 1.75em;
+  padding: 10px;
+}
+#all_qestion img {
+  width: 100%;
+  max-width: 50px;
+  margin: auto;
+  text-align: left;
+  vertical-align: top;
+  background-color: #e5e5e5;
+}
+#all_qestion #qestion_output {
+  padding: 2px;
+  display: block;
+  height: 200px;
+  overflow-y: auto;
+}
+#all_qestion .question {
+  overflow-clip-margin: 10px;
+  display: block;
+  padding: 15px;
+  font-size: 1.5em;
+  color: #fff;
+  width: 100%;
+  margin: 0 auto;
+  text-align: left;
+  background-color: #222831;
+}
+
 #time,
 #result,
 #word {
-  text-align: center;
   text-shadow: 1px 1px 5px #333;
   font-size: 2em;
   font-weight: bold;
